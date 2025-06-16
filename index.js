@@ -1,5 +1,7 @@
 var navigationBar
 var navigationBarContent
+var navigationBarHamburgerImage
+var navigationBarHeaderText
 
 
 
@@ -39,7 +41,7 @@ function securityLogger(ipAddress) {
         ip: ipAddress,
         platform: navigator.platform,
         userAgent: navigator.userAgent,
-        memory: navigator.deviceMemory || "unknown"
+        memory: navigator.deviceMemory || "Bilinmiyor"
     });
 }
 
@@ -47,23 +49,30 @@ function securityLogger(ipAddress) {
 
 
 
-function openNavigationBar(){
-    if(navigationBar.style.height == "100%"){
+function toggleNavigationBar(){
+    if(navigationBar.style.height == "100%"){  //navigasyon kapatma eylemi
         navigationBar.style.height = "55px"
         navigationBar.style.backgroundColor = "rgba(0, 0, 0, 0.623)"
         navigationBarContent.style.opacity = "0"
+        navigationBarHamburgerImage.style.opacity = "1"
         setTimeout(() => {
             navigationBarContent.style.display = "none"
-        }, 600);  
+            navigationBarHamburgerImage.style.display = "inline"
+        }, 600);
+        navigationBarHeaderText.style.fontSize = "15px"  
+        navigationBarHeaderText.style.top = "0"
     }
-    else{
+    else{  //navigasyon accma eylemi... 
         navigationBar.style.height = "100%"
         navigationBar.style.backgroundColor = "#101010"
+        navigationBarHamburgerImage.style.display = "none"
         setTimeout(() => {
             navigationBarContent.style.display = "flex"
+            navigationBarHamburgerImage.style.opacity = "0"
         }, 150);
         navigationBarContent.style.opacity = "1"
-        
+        navigationBarHeaderText.style.fontSize = "30px"
+        navigationBarHeaderText.style.top = "15%"
     }
 }
 
@@ -71,6 +80,8 @@ function openNavigationBar(){
 window.onload = async function() {
     navigationBar = document.getElementById("navigationBar")
     navigationBarContent = document.getElementById("navigationBarContent")
+    navigationBarHamburgerImage = document.getElementById("navigationBarHamburgerImage")
+    navigationBarHeaderText = document.getElementById("navigationBarHeaderText")
     const ipAddress = await getIpAddress();
     if(localStorage.getItem("gunlukleme") != "kapalı"){
         securityLogger(ipAddress);

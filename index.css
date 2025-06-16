@@ -47,6 +47,8 @@ p{
         font-size: 15px;
         color: #f0f0f0ab;
         display: inline;
+        transition: all .5s ease;
+        position: relative;
     }
 
     div{
@@ -72,6 +74,7 @@ p{
             border-radius: 2px;
             color: #bebebed7;
             transition: all .3s ease;
+            max-width: 600px;
         }
 
         button:hover{
@@ -99,3 +102,23 @@ p{
         font-weight: 400;
     }
 }
+
+
+.navigationBarCloseButton{
+    position: absolute;
+    bottom: 15px;
+    background-color: white !important;
+    color: black !important;
+    border-radius: 15px !important;
+    text-align: center !important;
+    width: 85% !important;
+    max-width: 500px !important;
+}
+
+.navigationBarCloseButton:hover{
+    border: solid white 2px !important;
+    background-color: #050505 !important;
+    color: white !important;
+    height: 38px !important;
+}
+

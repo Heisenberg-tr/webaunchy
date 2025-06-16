@@ -10,13 +10,14 @@
 </head>
 <body class="document-body">
     <div class="navigationBar" id="navigationBar">
-        <img src="hamburger.png" onclick="openNavigationBar()">
-        <p>Yakup Ege</p>
+        <img src="hamburger.png" onclick="toggleNavigationBar()" id="navigationBarHamburgerImage">
+        <p id="navigationBarHeaderText">Yakup Ege</p>
         <div id="navigationBarContent">
             <button style="border-radius: 15px 15px 0 0;">Hakkımda</button>
             <button>Blog</button>
             <button>Projelerim</button>
             <button style="border-radius: 0 0 15px 15px;">İletişim</button>
+            <button class="navigationBarCloseButton" onclick="toggleNavigationBar()">Kapat</button>
         </div>
     </div>
     <div class="brief">
@@ -27,6 +28,8 @@
         <p>2.NOT: Asıl ismim Yakup Ege değildir. Sadece Yakup. Ege ismini 9.sınıftan bir arkadaşım yakıştırdı.</p>
         <p>3.NOT: Navigasyon menüsündedeki seçenekler şuanlık çalışmamaktadır. Henüz geliştiriyorum.</p>
         <p>4.NOT: Bulanıklık efekti kasıyor ise chrome bayrakları üzerinden disable SurfaceView ' i aktif hale getirin.</p>
+        <p>5.NOT: OLUM navigasyon menüsü animasyonları enfis oldu oysa jsye 1 senedir el sürmüyom GÜZEL</p>
+        <p>Medeni 5.NOT: Uzun zamandır JavaScript ile betik yazmamama karşın tasarlayabildiğim animasyon estetik anlayışımı tatmin etti. Güzel ilerliyor.</p>
     </div>
     <div style="height: 1000px;"></div>
 </body>
