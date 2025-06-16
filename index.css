@@ -20,11 +20,22 @@ p{
     background-color: rgba(0, 0, 0, 0.623);
     backdrop-filter: blur(7px);
     text-align: center;
-    line-height: 28px;
+    line-height: 55px;
+
+    img{
+        width: 45px;
+        height: 45px;
+        display: inline;
+        position: absolute;
+        left: 7px;
+        top: 6px;
+        opacity: 70%;
+    }
 
     p{
         font-size: 15px;
         color: #f0f0f0ab;
+        display: inline;
     }
 
 }
