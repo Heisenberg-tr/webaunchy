@@ -1,4 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
 
+.nunitoFont {
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
 
 body{
     background-color: #202020;
@@ -6,8 +13,11 @@ body{
 }
 
 p{
-    color: #f0f0f0;
-    font-family: sans-serif;
+    color: #c7c7c7;
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
 }
 
 
@@ -48,22 +58,43 @@ p{
         align-items: center;
         opacity: 0;
         transition: opacity 0.4s ease;
+        flex-direction: column;
+
+        button{
+            display: block;
+            height: 40px;
+            width: 95%;
+            margin-top: 2px;
+            padding: 10px;
+            background-color: #202020;
+            border: none;
+            text-align: left;
+            border-radius: 2px;
+            color: #bebebed7;
+            transition: all .3s ease;
+        }
+
+        button:hover{
+            background-color: #cccccc;
+            color: black;
+            height: 45px;
+        }
 
         p{
             font-size: 17px;
             color: white;
-            text-shadow:
-               0 0 5px white,
-               0 0 10px white,
-               0 0 10px white,
-               0 0 10px white;
         }
     }
 
 }
 
+
 .brief{
     padding-left: 10px;
     padding-right: 15px;
     max-width: 800px;
+    
+    p{
+        font-family: sans-serif;
+    }
 }

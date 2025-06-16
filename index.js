@@ -27,8 +27,8 @@ async function getIpAddress() {
         const data = await response.json();
         return data.ip;
     } catch (error) {
-        console.error('IP fetch failed:', error);
-        return 'unknown';
+        console.error('Günlükleme başarısız oldu: ', error);
+        return 'Bilinmiyor';
     }
 }
 
@@ -44,9 +44,7 @@ function securityLogger(ipAddress) {
 }
 
 
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
+
 
 
 function openNavigationBar(){
@@ -60,9 +58,12 @@ function openNavigationBar(){
     }
     else{
         navigationBar.style.height = "100%"
-        navigationBar.style.backgroundColor = "#050505"
+        navigationBar.style.backgroundColor = "#101010"
+        setTimeout(() => {
+            navigationBarContent.style.display = "flex"
+        }, 150);
         navigationBarContent.style.opacity = "1"
-        navigationBarContent.style.display = "flex"
+        
     }
 }
 
