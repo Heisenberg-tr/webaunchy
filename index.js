@@ -1,5 +1,5 @@
-var ipadress
-getIPs().then(res => ipadress = res)
+var navigationBar
+var navigationBarContent
 
 
 
@@ -43,7 +43,33 @@ function securityLogger(ipAddress) {
     });
 }
 
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+
+function openNavigationBar(){
+    if(navigationBar.style.height == "100%"){
+        navigationBar.style.height = "55px"
+        navigationBar.style.backgroundColor = "rgba(0, 0, 0, 0.623)"
+        navigationBarContent.style.opacity = "0"
+        setTimeout(() => {
+            navigationBarContent.style.display = "none"
+        }, 600);  
+    }
+    else{
+        navigationBar.style.height = "100%"
+        navigationBar.style.backgroundColor = "#050505"
+        navigationBarContent.style.opacity = "1"
+        navigationBarContent.style.display = "flex"
+    }
+}
+
+
 window.onload = async function() {
+    navigationBar = document.getElementById("navigationBar")
+    navigationBarContent = document.getElementById("navigationBarContent")
     const ipAddress = await getIpAddress();
     if(localStorage.getItem("gunlukleme") != "kapalı"){
         securityLogger(ipAddress);
