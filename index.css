@@ -89,6 +89,10 @@ p{
         }
     }
 
+    ul{
+        display: none;
+    }
+
 }
 
 
@@ -121,4 +125,59 @@ p{
     color: white !important;
     height: 38px !important;
 }
+
+.navigationBarHeader{
+    display: inline !important;
+    opacity: 1 !important;
+    align-items: start !important;
+}
+
+
+
+
+@media screen and (min-width: 769px) {
+    .navigationBar{
+        text-align: center;
+
+        img{
+            display: none;
+        }
+
+        p{
+            margin-left: 25px;
+            position: absolute;
+            left: 0;
+            top: -13px;
+        }
+
+        ul{
+            display: inline;
+            color: white;
+
+            li{
+                font-family: "Nunito", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: 300;
+                font-style: normal;
+                display: inline;
+                color: #f0f0f088;
+                margin-right: 14px;
+                position: relative;
+                top: 1px;
+                transition: all 0.3s ease;
+            }
+
+            li:hover{
+                color: #f0f0f0cb;
+                text-shadow:
+               0 0 5px #f0f0f091,
+               0 0 8px #f0f0f091,
+               0 0 8px #f0f0f091,
+               0 0 8px #f0f0f091;
+            }
+
+        }
+    }
+}
+
 
