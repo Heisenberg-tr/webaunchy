@@ -8,12 +8,12 @@
 }
 
 body{
-    background-color: #202020;
+    background-color: #231f25;
     padding-top: 80px;
 }
 
 p{
-    color: #c7c7c7;
+    color: #bbb7bebe;
     font-family: "Nunito", sans-serif;
     font-optical-sizing: auto;
     font-weight: 300;
@@ -27,7 +27,7 @@ p{
     height: 55px;
     left: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.623);
+    background-color: rgba(19, 17, 24, 0.623);
     backdrop-filter: blur(7px);
     text-align: center;
     line-height: 55px;
@@ -45,7 +45,7 @@ p{
 
     p{
         font-size: 15px;
-        color: #f0f0f0ab;
+        color: #b8aabbab;
         display: inline;
         transition: all .5s ease;
         position: relative;
@@ -68,11 +68,11 @@ p{
             width: 95%;
             margin-top: 2px;
             padding: 10px;
-            background-color: #202020;
+            background-color: #221c31;
             border: none;
             text-align: left;
             border-radius: 2px;
-            color: #bebebed7;
+            color: #a398b9d7;
             transition: all .3s ease;
             max-width: 600px;
         }
@@ -97,7 +97,7 @@ p{
 
 
 a{
-    color: #dddddd;
+    color: #b39ac2;
 }
 
 .brief{
@@ -111,13 +111,13 @@ a{
     }
 
     ul{
-        color: #c7c7c7;
+        color: #b2a5c4b6;
         font-family: sans-serif;
         font-weight: 400;
     }
 
     ol{
-        color: #c7c7c7;
+        color: #b2a5c4b6;
         font-family: sans-serif;
         font-weight: 400
     }
@@ -127,8 +127,8 @@ a{
 .navigationBarCloseButton{
     position: absolute;
     bottom: 25px;
-    background-color: white !important;
-    color: black !important;
+    background-color: rgb(193, 165, 219) !important;
+    color: rgb(68, 60, 68) !important;
     border-radius: 15px !important;
     text-align: center !important;
     width: 85% !important;
@@ -136,16 +136,29 @@ a{
 }
 
 .navigationBarCloseButton:hover{
-    border: solid white 2px !important;
-    background-color: #050505 !important;
-    color: white !important;
-    height: 38px !important;
+    background-color: #10001f !important;
+    color: rgb(110, 91, 133) !important;
+    height: 40px !important;
 }
 
 .navigationBarHeader{
     display: inline !important;
     opacity: 1 !important;
     align-items: start !important;
+}
+
+
+.projectSubPage{
+    h1{
+        text-align: center;
+        background: #b3aeee;
+        background: linear-gradient(82deg, rgba(179, 174, 238, 1) 0%, rgba(145, 89, 150, 1) 49%, rgba(148, 187, 233, 1) 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-family: sans-serif;
+        font-size: 50px;
+    }
 }
 
 

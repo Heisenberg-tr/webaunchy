@@ -52,7 +52,7 @@ function securityLogger(ipAddress) {
 function toggleNavigationBar(){
     if(navigationBar.style.height == "100%"){  //navigasyon kapatma eylemi
         navigationBar.style.height = "55px"
-        navigationBar.style.backgroundColor = "rgba(0, 0, 0, 0.623)"
+        navigationBar.style.backgroundColor = "rgba(19, 17, 24, 0.623)"
         navigationBarContent.style.opacity = "0"
         navigationBarHamburgerImage.style.opacity = "1"
         setTimeout(() => {
@@ -64,7 +64,7 @@ function toggleNavigationBar(){
     }
     else{  //navigasyon accma eylemi... 
         navigationBar.style.height = "100%"
-        navigationBar.style.backgroundColor = "#101010"
+        navigationBar.style.backgroundColor = "rgb(25, 19, 27)"
         navigationBarHamburgerImage.style.display = "none"
         setTimeout(() => {
             navigationBarContent.style.display = "flex"
