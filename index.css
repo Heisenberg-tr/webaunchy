@@ -32,6 +32,7 @@ p{
     text-align: center;
     line-height: 55px;
     transition: all .55s ease;
+    z-index: 9999;
 
     img{
         width: 45px;
@@ -161,8 +162,87 @@ h1{
 
 
 
+.chatroomLoginDiv{
+    text-align: center;
+    margin: auto;
 
+    input{
+        background-color: #483f52;
+        border: 0;
+        padding: 9px;
+        width: 250px;
+        color: #b7a9c7;
+        border-radius: 7px;
+        outline: 0;
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 17px;
+    }
 
+    button{
+        width: 150px;
+        padding: 5px;
+        border-radius: 5px;
+        border: none;
+        background-color: #c9c2d1;
+    }
+    
+    
+}
+
+::placeholder{
+    color: #ca9df0;
+}
+
+.chatroom{
+    margin-bottom: 55px;
+
+    h3{
+        font-family: sans-serif;
+        color: #a7a2db;
+        font-size: 33px;
+        margin-left: 25px;
+        margin-bottom: 0;
+    }
+
+    p{
+        font-family: sans-serif;
+        margin-top: 0;
+        margin-left: 28px;
+        font-size: 15px;
+    }
+}
+
+.messageBox{
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    left: 10px;
+    background-color: #10001f9a;
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+
+    input{
+        width: 80%;
+        background-color: #10001f00;
+        border: none;
+        padding: 10px;
+        color: #c5c2e9b4;
+        outline: none;
+    }
+
+    button{
+        position: absolute;
+        right: 15px;
+        bottom: 4px;
+        width: 75px;
+        padding: 5px;
+        border: none;
+        background-color: #10001f00;
+        color: #dfdcffb4;
+    }
+
+}
 
 @media screen and (min-width: 769px) {
     .navigationBar{

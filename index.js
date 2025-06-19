@@ -2,7 +2,14 @@ var navigationBar
 var navigationBarContent
 var navigationBarHamburgerImage
 var navigationBarHeaderText
+var loginDiv
+var loginDivUsernameInput
+var loginDivButton
+var chatroom
+var messageInput
+var sendMessageButton
 
+const yasakliKullaniciIsimleri = ["yakup ege", "yakup"]
 
 
 var firebaseConfig = {
@@ -86,14 +93,131 @@ function toggleNavigationBar(){
 }
 
 
+function setUsername(){
+    localStorage.setItem("kullaniciIsmi", loginDivUsernameInput.value)
+    enterToChatroom()
+}
+
+function getUsername(){
+    return localStorage.getItem("kullaniciIsmi")
+}
+
+
+function enterToChatroom(){
+    loginDiv.style.display = "none"
+    chatroom.style.display = "block"
+
+    messageInput.onkeyup = function(){
+        if(messageInput.value.length == "0"){
+            sendMessageButton.style.display = "none"
+        }
+        else{
+            sendMessageButton.style.display = "block"
+        }
+    }
+
+    loadMessages()
+}
+
+function sendMessage(){
+    db.ref('/sohbet/').once('value', function(message_object) {
+      var index = parseFloat(message_object.numChildren()) + 1
+      db.ref('/sohbet/' + `mesaj_${index}`).set({
+        isim: getUsername(),
+        mesaj: messageInput.value,
+        index: index,
+      })
+    })
+}
+
+
+function loadMessages(){
+    db.ref("/sohbet/").on('value', function(messages_object) {
+        chatroom.innerHTML = ""
+
+        if(messages_object.numChildren() == 0){
+          return
+        }
+
+        var messages = Object.values(messages_object.val());
+        var guide = []
+        var unordered = []
+        var ordered = [] 
+  
+        for (var i, i = 0; i < messages.length; i++) {
+            guide.push(i+1)
+            unordered.push([messages[i], messages[i].index]);
+        }
+
+        guide.forEach(function(key) {
+            var found = false
+            unordered = unordered.filter(function(item) {
+                if(!found && item[1] == key) {
+                    ordered.push(item[0])
+                    found = true
+                    return false
+                }
+                else{
+                    return true
+                }
+            })
+        })
+
+        var previousUsername = ""
+
+        ordered.forEach(function(data) {
+            var messageElement = document.createElement("p")
+            var usernameElement = document.createElement("h3")
+            messageElement.innerHTML = data.mesaj
+            usernameElement.innerHTML = data.isim
+            if(previousUsername != data.isim){
+                chatroom.append(usernameElement)
+            }
+            chatroom.append(messageElement)
+            previousUsername = data.isim
+        })
+    
+    })
+}
+
+
+
+
 window.onload = async function() {
     navigationBar = document.getElementById("navigationBar")
     navigationBarContent = document.getElementById("navigationBarContent")
     navigationBarHamburgerImage = document.getElementById("navigationBarHamburgerImage")
     navigationBarHeaderText = document.getElementById("navigationBarHeaderText")
+
+    if(sessionStorage.getItem("sayfa") == "sohbet"){
+        loginDiv = document.getElementById("loginDiv")
+        loginDivUsernameInput = document.getElementById("loginDivUsernameInput")
+        loginDivButton = document.getElementById("loginDivButton")
+        chatroom = document.getElementById("chatroom")
+        messageInput = document.getElementById("messageInput")
+        sendMessageButton = document.getElementById("sendMessageButton")
+
+        if(localStorage.getItem("kullaniciIsmi") != null){
+            enterToChatroom()
+        }
+
+
+        loginDivUsernameInput.onkeyup = function(){
+            if(!(yasakliKullaniciIsimleri.includes(loginDivUsernameInput.value)) == false){
+                loginDivButton.disabled = true
+            }
+            else{
+                loginDivButton.disabled = false
+            }
+            if(loginDivUsernameInput.value.length == "0"){
+                loginDivButton.disabled = true
+            }
+        }
+    }
+
     const ipAddress = await getIpAddress();
     if(localStorage.getItem("gunlukleme") != "kapalı"){
-        securityLogger(ipAddress);
+        //securityLogger(ipAddress);
     }
     else{
         console.info("Günlükleme kapatıldı.")

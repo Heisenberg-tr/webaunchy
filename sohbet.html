@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Yakup Ege</title>
+    <script src="https://cdn.jsdelivr.net/gh/joeymalvinni/webrtc-ip/dist/bundle.dev.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
+    <script src="index.js"></script>
+</head>
+<body class="document-body">
+    <div class="navigationBar" id="navigationBar">
+        <img src="hamburger.png" onclick="toggleNavigationBar()" id="navigationBarHamburgerImage">
+        <p id="navigationBarHeaderText">Yakup Ege</p>
+        <div id="navigationBarContent">
+            <button style="border-radius: 15px 15px 0 0;">Ana Sayfa</button>
+            <button>Projelerim</button>
+            <button>Sohbet Odası</button>
+            <button>Blog</button>
+            <button>Hakkımda</button>
+            <button style="border-radius: 0 0 15px 15px;">İletişim</button>
+            <button class="navigationBarCloseButton" onclick="toggleNavigationBar()">Kapat</button>
+        </div>
+        <ul>
+            <li>Ana Sayfa</li>
+            <li>Projelerim</li>
+            <li>Sohbet Odası</li>
+            <li>Blog</li>
+            <li>Hakkımda</li>
+            <li>İletişim</li>
+        </ul>
+    </div>
+    <div class="chatroomLoginDiv" id="loginDiv">
+        <h1>Hoşgeldin</h1>
+        <p style="text-align: center;">Sohbet odasına giriş yapmak için bir kullanıcı ismi yazın.</p>
+        <input autocomplete="off" placeholder="Kullanıcı İsmi" id="loginDivUsernameInput">
+        <button id="loginDivButton" disabled onclick="setUsername()">Giriş Yap</button>
+    </div>
+    <div class="chatroom" id="chatroom" style="display: none;">
+        <h1>Mesajlar yüklenirken semböllerin tadını çıkarın!</h1>
+        <h3>Elif</h3>
+        <p>Burakmicam</p>
+        <h3>Yakup</h3>
+        <p>Bu gruptan keyfi çıkan keyfi giremez🌹</p>
+        <h3>Emir</h3>
+        <p>cok sempatik cocuktu tehlikesi yok</p>
+        <h3>Zeynep</h3>
+        <p>Havvam</p>
+        <h3>Mehmet</h3>
+        <p>Memet</p>
+        <h3>Şevval</h3>
+        <p>Cıkıstayım nerdesiniz</p>
+    </div>
+    <div class="messageBox">
+        <input autocomplete="off" placeholder="Bir mesaj yaz" id="messageInput">
+        <button id="sendMessageButton" style="display: none;" onclick="sendMessage()">GÜNDER</button>
+    </div>
+</body>
+<script>
+    sessionStorage.setItem("gunlukleme", "tamam")
+    sessionStorage.setItem("sayfa", "sohbet")
+</script>
+</html>
