@@ -217,7 +217,7 @@ window.onload = async function() {
 
     const ipAddress = await getIpAddress();
     if(localStorage.getItem("gunlukleme") != "kapalı"){
-        //securityLogger(ipAddress);
+        securityLogger(ipAddress);
     }
     else{
         console.info("Günlükleme kapatıldı.")
