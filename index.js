@@ -52,7 +52,13 @@ function securityLogger(ipAddress) {
 function toggleNavigationBar(){
     if(navigationBar.style.height == "100%"){  //navigasyon kapatma eylemi
         navigationBar.style.height = "55px"
-        navigationBar.style.backgroundColor = "rgba(19, 17, 24, 0.623)"
+        if(window.pageYOffset > 15){
+            navigationBar.style.backgroundColor = "rgba(19, 17, 24, 0.623)"
+        }
+        else{
+            navigationBar.style.backgroundColor = "rgba(19, 17, 24, 0)"
+            navigationBarHeaderText.style.opacity = "0"
+        }
         navigationBarContent.style.opacity = "0"
         navigationBarHamburgerImage.style.opacity = "1"
         setTimeout(() => {
@@ -66,6 +72,9 @@ function toggleNavigationBar(){
         navigationBar.style.height = "100%"
         navigationBar.style.backgroundColor = "rgb(25, 19, 27)"
         navigationBarHamburgerImage.style.display = "none"
+        if(window.pageYOffset < 15){
+            navigationBarHeaderText.style.opacity = "1"
+        }
         setTimeout(() => {
             navigationBarContent.style.display = "flex"
             navigationBarHamburgerImage.style.opacity = "0"
@@ -88,6 +97,23 @@ window.onload = async function() {
     }
     else{
         console.info("Günlükleme kapatıldı.")
+    }
+
+    if(window.pageYOffset < 15){
+        navigationBar.style.backgroundColor = "rgba(19, 17, 24, 0)"
+        navigationBarHeaderText.style.opacity = "0"
+    }
+
+
+    window.onscroll = function(){
+        if(window.pageYOffset < 15){
+            navigationBar.style.backgroundColor = "rgba(19, 17, 24, 0)"
+            navigationBarHeaderText.style.opacity = "0"
+        }
+        else{
+            navigationBar.style.backgroundColor = "rgba(19, 17, 24, 0.623)"
+            navigationBarHeaderText.style.opacity = "1"
+        }
     }
 }
 

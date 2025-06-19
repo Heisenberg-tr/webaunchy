@@ -78,7 +78,7 @@ p{
         }
 
         button:hover{
-            background-color: #cccccc;
+            background-color: #c3bae5;
             color: black;
             height: 45px;
         }
@@ -148,18 +148,18 @@ a{
 }
 
 
-.projectSubPage{
-    h1{
-        text-align: center;
-        background: #b3aeee;
-        background: linear-gradient(82deg, rgba(179, 174, 238, 1) 0%, rgba(145, 89, 150, 1) 49%, rgba(148, 187, 233, 1) 100%);
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        font-family: sans-serif;
-        font-size: 50px;
+h1{
+    text-align: center;
+    background: #b3aeee;
+    background: linear-gradient(82deg, rgba(179, 174, 238, 1) 0%, rgba(145, 89, 150, 1) 49%, rgba(148, 187, 233, 1) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: sans-serif;
+    font-size: 50px;
     }
-}
+
+
 
 
 
